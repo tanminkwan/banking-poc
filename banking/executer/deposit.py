@@ -1,7 +1,7 @@
 from miniagent import configure, db
 from miniagent.executer import ExecuterInterface
-from banking.adapter.kafka_producer import KafkaProducerAdapter
-from banking.adapter.rest_caller import RESTCaller
+from miniagent.adapters.kafka_producer import KafkaProducerAdapter
+from miniagent.adapters.rest_caller import RESTCaller
 from banking.dbquery.queries import insert_deposit, insert_raffle\
     , select_deposits
 

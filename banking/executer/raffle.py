@@ -24,4 +24,4 @@ class Raffle(ExecuterInterface):
                     created_date = row.created_date.isoformat()
                 ))
 
-        return 1 if results else 0, results
+        return 1 if results else 0, dict(results=results)

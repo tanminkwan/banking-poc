@@ -48,6 +48,7 @@ EXECUTERS_BY_TOPIC =\
     "banking.executer.raffle.ReadMessage",
 }
 
+SCHEDULER_TIMEZONE = "Asia/Seoul" 
 SCHEDULED_JOBS =\
 [
     {
