@@ -1,6 +1,6 @@
 from miniagent import configure
 from miniagent.executer import ExecuterInterface
-from banking.adapter.rest_caller import RESTCaller
+from miniagent.adapters.rest_caller import RESTCaller
 
 class Event(ExecuterInterface):
 
@@ -15,8 +15,8 @@ class Event(ExecuterInterface):
         
         status, result = rest_caller.call_get(url=url)
 
-        for row in result:
-
+        for row in result.get('results'):
+            
             descriptions = dict(
                 EVENT_10M_BY_ACCOUNT = "## {}님의 입금액이 천만원을 넘었습니다. 상금으로 2천만원을 드립니다.".format(row['account']),
                 EVENT_100M = "## {}님의 입금으로 KDB산업은행 총 입금액이 1억원을 돌파하였습니다. 상금으로 2억원을 드립니다.".format(row['account']),

@@ -1,0 +1,252 @@
+ZIPKIN_DOMAIN_NAME :  localhost
+ZIPKIN_PORT :  9411
+KAFKA_BOOTSTRAP_SERVERS :  localhost:9092
+ELASTIC_SEARCH_DOMAIN_NAME :  localhost
+ELASTIC_SEARCH_PORT :  9200
+DEPOSIT_SERVICE_ADDRESS :  localhost:5011
+EVENT_SERVICE_ADDRESS :  localhost:5012
+RAFFLE_SERVICE_ADDRESS :  localhost:5013
+AGENT_NAME :  raffle
+## timezone :  Asia/Seoul
+ * Serving Flask app 'raffle'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5013
+ * Running on http://192.168.0.4:5013
+Press CTRL+C to quit
+127.0.0.1 - - [05/Jul/2023 15:32:32] "GET /api/v1/raffle/all HTTP/1.1" 200 -
+ZIPKIN_DOMAIN_NAME :  localhost
+ZIPKIN_PORT :  9411
+KAFKA_BOOTSTRAP_SERVERS :  localhost:9092
+ELASTIC_SEARCH_DOMAIN_NAME :  localhost
+ELASTIC_SEARCH_PORT :  9200
+DEPOSIT_SERVICE_ADDRESS :  localhost:5011
+EVENT_SERVICE_ADDRESS :  localhost:5012
+RAFFLE_SERVICE_ADDRESS :  localhost:5013
+AGENT_NAME :  event
+## timezone :  Asia/Seoul
+ * Serving Flask app 'event'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5012
+ * Running on http://192.168.0.4:5012
+Press CTRL+C to quit
+127.0.0.1 - - [05/Jul/2023 15:35:32] "GET /api/v1/raffle/all HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:35:32] "GET /api/v1/event HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:38:32] "GET /api/v1/raffle/all HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:38:32] "GET /api/v1/event HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:41:32] "GET /api/v1/raffle/all HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:41:32] "GET /api/v1/event HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:44:32] "GET /api/v1/raffle/all HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:44:32] "GET /api/v1/event HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:47:32] "GET /api/v1/raffle/all HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:47:32] "GET /api/v1/event HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:50:32] "GET /api/v1/raffle/all HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:50:32] "GET /api/v1/event HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:53:32] "GET /api/v1/raffle/all HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:53:32] "GET /api/v1/event HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:56:32] "GET /api/v1/raffle/all HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:56:32] "GET /api/v1/event HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:59:32] "GET /api/v1/raffle/all HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 15:59:32] "GET /api/v1/event HTTP/1.1" 200 -
+## zipkin start 1 :  True ZipkinAttrs(trace_id='0002710770400247', span_id='3438175376402747', parent_span_id='810f82bccdb56fd7', flags='1', is_sampled=True)
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## not self.get_tracer().is_transport_configured()
+## zipkin start 1 :  True ZipkinAttrs(trace_id='8030747835591355', span_id='7774351802931534', parent_span_id='a7cac75c4d23cdfd', flags=None, is_sampled=True)
+###### BALANCE :  clyde 81000
+###### BALANCE TOT :  81000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='5019968810481931', span_id='8924781259066300', parent_span_id='37bf61d221d6a640', flags='1', is_sampled=True)
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## not self.get_tracer().is_transport_configured()
+## zipkin start 1 :  True ZipkinAttrs(trace_id='9857990912654941', span_id='6074025068799045', parent_span_id='fdaaecb63258457e', flags=None, is_sampled=True)
+###### BALANCE :  clyde 432000
+###### BALANCE TOT :  432000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='9689689721312240', span_id='1199905816009193', parent_span_id='aa2e0189e4ea7b07', flags=None, is_sampled=True)
+###### BALANCE :  clyde 742000
+###### BALANCE TOT :  742000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='7495645118317020', span_id='7278259463705848', parent_span_id='a3a266d078f6dda7', flags='1', is_sampled=True)
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## not self.get_tracer().is_transport_configured()
+## zipkin start 1 :  True ZipkinAttrs(trace_id='7002579041023194', span_id='5966154328097125', parent_span_id='3ac3c6f423e4b69e', flags=None, is_sampled=True)
+###### BALANCE :  clyde 1500000
+###### BALANCE TOT :  1500000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='3427238033187292', span_id='6876144795787757', parent_span_id='f7ea3399d5f44776', flags='1', is_sampled=True)
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## not self.get_tracer().is_transport_configured()
+## zipkin start 1 :  True ZipkinAttrs(trace_id='1483745567321440', span_id='2775802134849699', parent_span_id='4a8099fbcd2e334d', flags=None, is_sampled=True)
+###### BALANCE :  clyde 2180000
+###### BALANCE TOT :  2180000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='8069608987052116', span_id='8670996966038554', parent_span_id='714a03c1ece06812', flags=None, is_sampled=True)
+###### BALANCE :  clyde 2195000
+###### BALANCE TOT :  2195000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='0515322344272863', span_id='8129982461639066', parent_span_id='136b9fb42a0fb04d', flags='1', is_sampled=True)
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## not self.get_tracer().is_transport_configured()
+## zipkin start 1 :  True ZipkinAttrs(trace_id='9069049879501865', span_id='8004656456249988', parent_span_id='d1f188270fc30ad0', flags=None, is_sampled=True)
+###### BALANCE :  clyde 2610000
+###### BALANCE TOT :  2610000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='1464214484468460', span_id='4961609387934641', parent_span_id='1f5f7da1e4ba0aad', flags='1', is_sampled=True)
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## not self.get_tracer().is_transport_configured()
+## zipkin start 1 :  True ZipkinAttrs(trace_id='1390067501136370', span_id='6927170306317723', parent_span_id='45b4352946275a90', flags=None, is_sampled=True)
+###### BALANCE :  clyde 3589000
+###### BALANCE TOT :  3589000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='6574913330555750', span_id='8535192582379073', parent_span_id='e62aa9dc10792fd4', flags=None, is_sampled=True)
+###### BALANCE :  clyde 3694000
+###### BALANCE TOT :  3694000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='8789513563435646', span_id='9774440402394897', parent_span_id='d7cd466216a30181', flags='1', is_sampled=True)
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## not self.get_tracer().is_transport_configured()
+## zipkin start 1 :  True ZipkinAttrs(trace_id='3040989099684118', span_id='6535264022185936', parent_span_id='31badf3d6a1f5ac4', flags=None, is_sampled=True)
+###### BALANCE :  clyde 4176000
+###### BALANCE TOT :  4176000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='7998376707822105', span_id='4006015983909571', parent_span_id='ec755282477d3bdc', flags='1', is_sampled=True)
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## not self.get_tracer().is_transport_configured()
+## zipkin start 1 :  True ZipkinAttrs(trace_id='6089552402146907', span_id='8824666178622782', parent_span_id='28b47bde3b77484d', flags=None, is_sampled=True)
+###### BALANCE :  clyde 4700000
+###### BALANCE TOT :  4700000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='8798874830782349', span_id='1968391608401719', parent_span_id='3bb943e845c9cd91', flags=None, is_sampled=True)
+###### BALANCE :  clyde 5407000
+###### BALANCE TOT :  5407000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='7063037565216033', span_id='0228539978471665', parent_span_id='efb8d8f583ceb96c', flags='1', is_sampled=True)
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## not self.get_tracer().is_transport_configured()
+## zipkin start 1 :  True ZipkinAttrs(trace_id='5193534517222137', span_id='9148626482747790', parent_span_id='eb24b90f25c1681d', flags=None, is_sampled=True)
+###### BALANCE :  clyde 5784000
+###### BALANCE TOT :  5784000
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## zipkin start 1 :  True ZipkinAttrs(trace_id='7225774618937959', span_id='3951280099911125', parent_span_id='a56bd688f5de8410', flags='1', is_sampled=True)
+## 1 logging_context.stop 
+## 1 span_sender 
+1HH flush self.queue : 
+2HH flush  message : 
+## 2 span_sender 
+## 2 logging_context.stop 
+## not self.get_tracer().is_transport_configured()
+## zipkin start 1 :  True 127.0.0.1 - - [05/Jul/2023 16:02:32] "GET /api/v1/raffle/all HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jul/2023 16:02:32] "GET /api/v1/event HTTP/1.1" 200 -
