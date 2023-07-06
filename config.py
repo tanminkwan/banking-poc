@@ -4,6 +4,9 @@ from datetime import datetime, timedelta
 #Service Port
 PORT = 5000
 
+#DEBUG
+DEBUG = os.getenv("DEBUG", 'True').lower() in ('true', '1', 't')
+
 #hosts
 ZIPKIN_DOMAIN_NAME = os.environ.get('ZIPKIN_DOMAIN_NAME') or 'localhost'
 ZIPKIN_PORT =  os.environ.get('ZIPKIN_PORT') or '9411'
@@ -44,8 +47,6 @@ EXECUTERS_BY_TOPIC =\
 {
     "deposit."+AGENT_NAME.lower():
     "banking.executer.deposit.ReadMessage",
-    "raffle."+AGENT_NAME.lower():
-    "banking.executer.raffle.ReadMessage",
 }
 
 SCHEDULER_TIMEZONE = "Asia/Seoul" 
