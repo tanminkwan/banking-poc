@@ -1,0 +1,70 @@
+version: '3.8'
+services:
+  raffle:
+    image: tanminkwan/banking-miniagent
+    container_name: banking-raffle
+#    links:
+#      - kafka
+    environment:
+      DEBUG: true
+      AGENT_NAME: "raffle"
+      ZIPKIN_DOMAIN_NAME: 172.17.0.1
+      ZIPKIN_PORT: 9411
+#      KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+      KAFKA_BOOTSTRAP_SERVERS: "172.17.0.1:9092"
+  event:
+    image: tanminkwan/banking-miniagent
+    container_name: banking-event
+    ports:
+      - 8381:5000
+    links:
+      - raffle
+#      - kafka
+    environment:
+      DEBUG: true
+      AGENT_NAME: "event"
+      ZIPKIN_DOMAIN_NAME: 172.17.0.1
+      ZIPKIN_PORT: 9411
+      RAFFLE_SERVICE_ADDRESS: "raffle:5000"
+#      KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+      KAFKA_BOOTSTRAP_SERVERS: "172.17.0.1:9092"
+  deposit:
+    image: tanminkwan/banking-miniagent
+    container_name: banking-deposit
+#    links:
+#      - kafka
+    ports:
+      - 8382:5000
+    environment:
+      DEBUG: true
+      AGENT_NAME: "deposit"
+      ZIPKIN_DOMAIN_NAME: 172.17.0.1
+      ZIPKIN_PORT: 9411
+#      KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+      KAFKA_BOOTSTRAP_SERVERS: "172.17.0.1:9092"
+  clyde:
+    image: tanminkwan/banking-miniagent
+    container_name: client-clyde
+    links:
+      - event
+      - deposit
+    environment:
+      DEBUG: true
+      AGENT_NAME: "clyde"
+      ZIPKIN_DOMAIN_NAME: 172.17.0.1
+      ZIPKIN_PORT: 9411
+      EVENT_SERVICE_ADDRESS: "event:5000"
+      DEPOSIT_SERVICE_ADDRESS: "deposit:5000"
+  bonnie:
+    image: tanminkwan/banking-miniagent
+    container_name: client-bonnie
+    links:
+      - event
+      - deposit
+    environment:
+      DEBUG: true
+      AGENT_NAME: "bonnie"
+      ZIPKIN_DOMAIN_NAME: 172.17.0.1
+      ZIPKIN_PORT: 9411
+      EVENT_SERVICE_ADDRESS: "event:5000"
+      DEPOSIT_SERVICE_ADDRESS: "deposit:5000"
