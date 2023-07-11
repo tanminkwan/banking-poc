@@ -1,7 +1,10 @@
 # banking-poc
 
-## Apply docker compose
-
+## Download banking-poc repository
+```
+$ get clone https://github.com/tanminkwan/banking-poc.git
+```
+## Execute docker compose files
 ```
 $ docker compose -f docker-compose-kafka.yml -f docker-compose-opensearch.yml -f docker-compose-zipkin.yml -f docker-compose.yml up -d
 ```
