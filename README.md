@@ -37,3 +37,13 @@ echo '{"name":"opensearch-sink",
 }
 }'|curl -X POST -d @- http://localhost:8083/connectors --header "content-Type:application/json"
 ```
+
+## Open Zipkin web site and check the transactions
+
+1. Clyde and Bonnie send requests to Deposit and Event every 2 minites. 
+2. Deposit produces messages and Raffle consumes the messages via Kafka. 
+3. Event calls Raffle whenever it receive a request from Clyde and Bonnie. 
+4. John Dillinger requests deposit amount by account from Event every 4 minutes. 
+5. Event retrieves this information from Opensearch and provides it to John Dillinger. 
+
+You can see all of them on the Zipkin dashboard.(Maybe http://localhost:9411)
