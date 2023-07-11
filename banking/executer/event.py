@@ -1,7 +1,7 @@
 from miniagent import configure
 from miniagent.executer import ExecuterInterface
 from miniagent.adapters.rest_caller import RESTCaller
-from ..adapter.opensearch_caller import OpensearchCaller
+from miniagent.adapters.opensearch_caller import OpensearchCaller
 
 class Summation(ExecuterInterface):
 
