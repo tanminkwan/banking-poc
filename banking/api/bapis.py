@@ -84,6 +84,24 @@ class Event(Resource):
 
         return rtn_message, status_code
 
+class Summation(Resource):
+
+    def get(self):
+
+        data = dict(
+            executer = 'banking.executer.event.Summation',
+        )
+
+        rtn, rtn_message = ExecuterCaller.instance().execute_command(data)
+        
+        if rtn:
+            status_code = status.HTTP_200_OK            
+        else:
+            status_code = status.HTTP_404_NOT_FOUND
+
+        return rtn_message, status_code
+
 api.add_resource(Deposit, '/deposit/<string:account>', endpoint='deposit')
 api.add_resource(Raffle, '/raffle/<string:account>', endpoint='raffle')
 api.add_resource(Event, '/event', endpoint='event')
+api.add_resource(Summation, '/summation', endpoint='summation')

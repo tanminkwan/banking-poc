@@ -25,6 +25,8 @@ services:
       AGENT_NAME: "event"
       ZIPKIN_DOMAIN_NAME: 172.17.0.1
       ZIPKIN_PORT: 9411
+      ELASTIC_SEARCH_DOMAIN_NAME: 172.17.0.1
+      ELASTIC_SEARCH_PORT: 9200
       RAFFLE_SERVICE_ADDRESS: "raffle:5000"
 #      KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
       KAFKA_BOOTSTRAP_SERVERS: "172.17.0.1:9092"
@@ -68,3 +70,14 @@ services:
       ZIPKIN_PORT: 9411
       EVENT_SERVICE_ADDRESS: "event:5000"
       DEPOSIT_SERVICE_ADDRESS: "deposit:5000"
+  john_dillinger:
+    image: tanminkwan/banking-miniagent
+    container_name: client-john_dillinger
+    links:
+      - event
+    environment:
+      DEBUG: true
+      AGENT_NAME: "john_dillinger"
+      ZIPKIN_DOMAIN_NAME: 172.17.0.1
+      ZIPKIN_PORT: 9411
+      EVENT_SERVICE_ADDRESS: "event:5000"
