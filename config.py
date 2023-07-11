@@ -69,7 +69,16 @@ SCHEDULED_JOBS =\
         "minutes":3,
         "start_date":datetime.now()+timedelta(minutes=1),
         "agents":["bonnie","clyde"]
-    }
+    },
+    {
+        "executer":"banking.executer.event.CheckAmount",
+        "trigger":"interval",
+        "id":"check_amount",
+        "name":"Check Amount",
+        "minutes":4,
+        "start_date":datetime.now()+timedelta(minutes=1),
+        "agents":["john_dillinger"]
+    },
 ]
 
 SERVICE_ENDPOINT =\
