@@ -81,8 +81,8 @@ class DepositList(ExecuterInterface):
                     created_date = row.created_date.isoformat()
                 ))
 
-        return 1 if results else 0, results
-                
+        return 1 if results else 0, {"results":results}
+
 class ReadMessage(ExecuterInterface):
 
     def execute_command(self,
@@ -91,7 +91,6 @@ class ReadMessage(ExecuterInterface):
         
         account = initial_param.get('account')
         amount = initial_param.get('amount')
-
         
         account_balance = amount + \
             (configure['C_BALANCE'][account] \

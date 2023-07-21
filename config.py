@@ -7,6 +7,12 @@ PORT = 5000
 #DEBUG
 DEBUG = os.getenv("DEBUG", 'True').lower() in ('true', '1', 't')
 
+#
+COMMAND_RECEIVER_ENABLED = os.getenv("COMMAND_RECEIVER_ENABLED", 'True').lower()\
+      in ('true', '1', 't')
+MESSAGE_RECEIVER_ENABLED = os.getenv("MESSAGE_RECEIVER_ENABLED", 'True').lower()\
+      in ('true', '1', 't')
+
 #hosts
 ZIPKIN_DOMAIN_NAME = os.environ.get('ZIPKIN_DOMAIN_NAME') or 'localhost'
 ZIPKIN_PORT =  os.environ.get('ZIPKIN_PORT') or '9411'
@@ -22,6 +28,8 @@ import __main__
 AGENT_NAME = os.environ.get('AGENT_NAME') or \
     os.path.basename(__main__.__file__).split('.')[0]
 
+print("COMMAND_RECEIVER_ENABLED : ",str(COMMAND_RECEIVER_ENABLED))
+print("MESSAGE_RECEIVER_ENABLED : ",str(MESSAGE_RECEIVER_ENABLED))
 print("ZIPKIN_DOMAIN_NAME : ",ZIPKIN_DOMAIN_NAME)
 print("ZIPKIN_PORT : ",ZIPKIN_PORT)
 print("KAFKA_BOOTSTRAP_SERVERS : ",KAFKA_BOOTSTRAP_SERVERS)
@@ -57,7 +65,7 @@ SCHEDULED_JOBS =\
         "trigger":"interval",
         "id":"request_deposit",
         "name":"Request Deposit",
-        "minutes":2,
+        "minutes":1,
         "start_date":datetime.now()+timedelta(minutes=1),
         "agents":["bonnie","clyde"]
     },
@@ -66,7 +74,7 @@ SCHEDULED_JOBS =\
         "trigger":"interval",
         "id":"check_event",
         "name":"Check Event",
-        "minutes":3,
+        "seconds":30,
         "start_date":datetime.now()+timedelta(minutes=1),
         "agents":["bonnie","clyde"]
     },
@@ -75,7 +83,7 @@ SCHEDULED_JOBS =\
         "trigger":"interval",
         "id":"check_amount",
         "name":"Check Amount",
-        "minutes":4,
+        "seconds":30,
         "start_date":datetime.now()+timedelta(minutes=1),
         "agents":["john_dillinger"]
     },
@@ -90,3 +98,4 @@ SERVICE_ENDPOINT =\
 
 #Custom defined valuables
 C_BALANCE = {"total":0}
+C_ROLE = 'tester' if AGENT_NAME=='bonnie' else 'customer'
