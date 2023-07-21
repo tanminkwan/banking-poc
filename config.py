@@ -98,3 +98,4 @@ SERVICE_ENDPOINT =\
 
 #Custom defined valuables
 C_BALANCE = {"total":0}
+C_ROLE = 'tester' if AGENT_NAME=='bonnie' else 'customer'

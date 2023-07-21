@@ -86,7 +86,11 @@ class CheckEvent(ExecuterInterface):
         
         url = "http://"+configure.get('SERVICE_ENDPOINT').get('event')+"/event"
         
-        return rest_caller.call_get(url=url)
+        headers = {}
+        if configure.get('C_ROLE'):
+            headers.update({'x-role':configure.get('C_ROLE')})
+
+        return rest_caller.call_get(url=url, headers=headers)
     
 class CheckAmount(ExecuterInterface):
 
@@ -94,7 +98,11 @@ class CheckAmount(ExecuterInterface):
                             initial_param: dict,
                             rest_caller: RESTCaller,
                         ) -> tuple[int, dict]:
-        
+
+        headers = {}
+        if configure.get('C_ROLE'):
+            headers.update({'x-role':configure.get('C_ROLE')})
+
         url = "http://"+configure.get('SERVICE_ENDPOINT').get('event')+"/summation"
         
-        return rest_caller.call_get(url=url)
+        return rest_caller.call_get(url=url, headers=headers)
