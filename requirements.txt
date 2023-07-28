@@ -1,1 +1,1 @@
-miniagent==0.0.16
+miniagent==0.0.17

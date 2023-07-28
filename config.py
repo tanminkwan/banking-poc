@@ -8,9 +8,9 @@ PORT = 5000
 DEBUG = os.getenv("DEBUG", 'True').lower() in ('true', '1', 't')
 
 #
-COMMAND_RECEIVER_ENABLED = os.getenv("COMMAND_RECEIVER_ENABLED", 'True').lower()\
+COMMAND_RECEIVER_ENABLED = os.getenv("COMMAND_RECEIVER_ENABLED", 'False').lower()\
       in ('true', '1', 't')
-MESSAGE_RECEIVER_ENABLED = os.getenv("MESSAGE_RECEIVER_ENABLED", 'True').lower()\
+MESSAGE_RECEIVER_ENABLED = os.getenv("MESSAGE_RECEIVER_ENABLED", 'False').lower()\
       in ('true', '1', 't')
 
 #hosts
@@ -98,4 +98,4 @@ SERVICE_ENDPOINT =\
 
 #Custom defined valuables
 C_BALANCE = {"total":0}
-C_ROLE = 'tester' if AGENT_NAME=='bonnie' else 'customer'
+C_ROLE = os.environ.get('X_ROLE') or ('tester' if AGENT_NAME=='bonnie' else 'customer')
