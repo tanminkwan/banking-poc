@@ -8,6 +8,7 @@ services:
     environment:
       DEBUG: true
       AGENT_NAME: "raffle"
+      MESSAGE_RECEIVER_ENABLED :  true
       ZIPKIN_DOMAIN_NAME: 172.17.0.1
       ZIPKIN_PORT: 9411
 #      KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
