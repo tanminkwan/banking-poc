@@ -1,11 +1,12 @@
 from flask import request, make_response
-from flask_restful import Resource, reqparse
+from flask_restful import reqparse
 from flask_api import status
 from miniagent import api
 from miniagent.executer import ExecuterCaller
+from miniagent.event_receiver import Resource
 
 class Deposit(Resource):
-
+    
     def post(self, account):
 
         parser = reqparse.RequestParser()
@@ -28,7 +29,7 @@ class Deposit(Resource):
             status_code = status.HTTP_400_BAD_REQUEST
 
         return dict(message=rtn_message['message']), status_code
-    
+
     def get(self, account):
 
         data = dict(
@@ -46,6 +47,9 @@ class Deposit(Resource):
             status_code = status.HTTP_400_BAD_REQUEST
 
         return dict(message=rtn_message), status_code
+    
+    post.permitted_roles = ["service"]
+    get.permitted_roles  = ["service"]
 
 class Raffle(Resource):
 
@@ -67,6 +71,8 @@ class Raffle(Resource):
 
         return rtn_message, status_code
 
+    get.permitted_roles = ["service"]
+
 class Event(Resource):
 
     def get(self):
@@ -84,6 +90,8 @@ class Event(Resource):
 
         return rtn_message, status_code
 
+    get.permitted_roles = ["service"]
+
 class Summation(Resource):
 
     def get(self):
@@ -100,6 +108,8 @@ class Summation(Resource):
             status_code = status.HTTP_404_NOT_FOUND
 
         return rtn_message, status_code
+    
+    get.permitted_roles = ["service"]
 
 api.add_resource(Deposit, '/deposit/<string:account>', endpoint='deposit')
 api.add_resource(Raffle, '/raffle/<string:account>', endpoint='raffle')

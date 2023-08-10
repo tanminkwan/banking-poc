@@ -1,20 +1,21 @@
 version: '3.8'
 services:
   raffle:
-    image: tanminkwan/banking-miniagent
+    image: tanminkwan/banking-miniagent:latest
     container_name: banking-raffle
 #    links:
 #      - kafka
     environment:
       DEBUG: true
       AGENT_NAME: "raffle"
+      AGENT_ROLES: "service"
       MESSAGE_RECEIVER_ENABLED :  true
       ZIPKIN_DOMAIN_NAME: 172.17.0.1
       ZIPKIN_PORT: 9411
 #      KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
       KAFKA_BOOTSTRAP_SERVERS: "172.17.0.1:9092"
   event:
-    image: tanminkwan/banking-miniagent
+    image: tanminkwan/banking-miniagent:latest
     container_name: banking-event
     ports:
       - 8381:5000
@@ -24,6 +25,7 @@ services:
     environment:
       DEBUG: true
       AGENT_NAME: "event"
+      AGENT_ROLES: "service"
       ZIPKIN_DOMAIN_NAME: 172.17.0.1
       ZIPKIN_PORT: 9411
       ELASTIC_SEARCH_DOMAIN_NAME: 172.17.0.1
@@ -32,7 +34,7 @@ services:
 #      KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
       KAFKA_BOOTSTRAP_SERVERS: "172.17.0.1:9092"
   deposit:
-    image: tanminkwan/banking-miniagent
+    image: tanminkwan/banking-miniagent:latest
     container_name: banking-deposit
 #    links:
 #      - kafka
@@ -41,12 +43,13 @@ services:
     environment:
       DEBUG: true
       AGENT_NAME: "deposit"
+      AGENT_ROLES: "service"
       ZIPKIN_DOMAIN_NAME: 172.17.0.1
       ZIPKIN_PORT: 9411
 #      KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
       KAFKA_BOOTSTRAP_SERVERS: "172.17.0.1:9092"
   clyde:
-    image: tanminkwan/banking-miniagent
+    image: tanminkwan/banking-miniagent:latest
     container_name: client-clyde
     links:
       - event
@@ -54,12 +57,13 @@ services:
     environment:
       DEBUG: true
       AGENT_NAME: "clyde"
+      AGENT_ROLES: "customer"
       ZIPKIN_DOMAIN_NAME: 172.17.0.1
       ZIPKIN_PORT: 9411
       EVENT_SERVICE_ADDRESS: "event:5000"
       DEPOSIT_SERVICE_ADDRESS: "deposit:5000"
   bonnie:
-    image: tanminkwan/banking-miniagent
+    image: tanminkwan/banking-miniagent:latest
     container_name: client-bonnie
     links:
       - event
@@ -67,19 +71,21 @@ services:
     environment:
       DEBUG: true
       AGENT_NAME: "bonnie"
+      AGENT_ROLES: "customer"
       X_ROLE: "tester"
       ZIPKIN_DOMAIN_NAME: 172.17.0.1
       ZIPKIN_PORT: 9411
       EVENT_SERVICE_ADDRESS: "event:5000"
       DEPOSIT_SERVICE_ADDRESS: "deposit:5000"
   john_dillinger:
-    image: tanminkwan/banking-miniagent
+    image: tanminkwan/banking-miniagent:latest
     container_name: client-john_dillinger
     links:
       - event
     environment:
       DEBUG: true
       AGENT_NAME: "john_dillinger"
+      AGENT_ROLES: "admin"
       ZIPKIN_DOMAIN_NAME: 172.17.0.1
       ZIPKIN_PORT: 9411
       EVENT_SERVICE_ADDRESS: "event:5000"
